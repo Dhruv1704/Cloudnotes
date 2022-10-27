@@ -4,14 +4,15 @@ export default function SignUp(props) {
 
     const {host} = props;
     const closeModal = () => {
+        document.getElementById("sign-form").reset();
         document.getElementById("sign-div").style.display = "none";
     }
 
-    const [credentials, setCredentials] = useState({fname:"",lname:"",email: "", password: "",cpassword:""});
+    const [credentials, setCredentials] = useState({fname:"",lname:"",email: "", password: ""});
 
     const signUp = async (e)=>{
         e.preventDefault();
-        const {fname,lname,email,password,cpassword} = credentials;
+        const {fname,lname,email,password} = credentials;
         const response = await fetch(`${host}/api/authen/createuser`,{
             method:"POST",
             headers:{
@@ -21,7 +22,7 @@ export default function SignUp(props) {
         });
         const json = await response.json();
         if(json.success){
-            localStorage.setItem("web-token",json.webToken);
+            sessionStorage.setItem("web-token",json.webToken);
             closeModal()
         }else{
             alert("Already used credentials")
@@ -33,6 +34,15 @@ export default function SignUp(props) {
     }
 
 
+    function validatePassword(){
+        const password = document.getElementById("pwd");
+        const confirm_password = document.getElementById("cpwd");
+        if(password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
 
     return (
         <div className={"sign-div"} id={"sign-div"}>
@@ -46,9 +56,9 @@ export default function SignUp(props) {
                     <input type={"text"} placeholder={"First Name"} name={"fname"} className={"sign-fname"} onChange={onChange} minLength={3} required/>
                     <input type="text" placeholder={"Last Name"} name={"lname"} className={"sign-lname"} onChange={onChange} required/>
                 </div>
-                <input type={"text"} placeholder={"Email Address"} name={"email"}  className={"sign-input"} onChange={onChange}/>
-                <input type={"password"} placeholder={"New Password"} name={"password"}  className={"sign-input"} onChange={onChange} minLength={5} required/>
-                <input type={"password"} placeholder={"Confirm Password"} name={"cpassword"} className={"sign-input"}onChange={onChange} minLength={5} required/>
+                <input type={"email"} placeholder={"Email Address"} name={"email"}  className={"sign-input"} onChange={onChange} required/>
+                <input type={"password"} placeholder={"New Password"} name={"password"} id="pwd" className={"sign-input"} onChange={onChange} minLength={5} required/>
+                <input type={"password"} placeholder={"Confirm Password"} name={"cpassword"} id="cpwd" className={"sign-input"} onChange={onChange} onKeyUp={validatePassword} minLength={5} required/>
                 <button type={"submit"} className={"sign-btn"} >Sign Up</button>
             </form>
         </div>

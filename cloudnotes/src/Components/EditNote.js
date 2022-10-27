@@ -21,7 +21,6 @@ export default function EditNote(props) {
     const updateNote = (e)=>{
         e.preventDefault();
         editNote(notes.id,notes.etitle,notes.edescription,notes.etag)
-        setNotes({id:note._id,etitle:note.etitle,edescription:note.edescription,etag:note.etag})
         document.getElementById(`edit-div ${note._id}`).style.display = "none";  // problem with closemodal and updateNote  ,try commenting updateNote setNotes.
     }
 

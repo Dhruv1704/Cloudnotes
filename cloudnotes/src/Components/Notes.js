@@ -10,7 +10,7 @@ export default function Notes() {
     const navigate = useNavigate();
     useEffect(() => {
         document.body.style.background = "white";
-        if(localStorage.getItem("web-token")){
+        if(sessionStorage.getItem("web-token")){
             getNotes()
         }else{
             navigate("/")

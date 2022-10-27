@@ -38,7 +38,7 @@ export default function LogIn() {
         });
         const json = await response.json();
         if(json.success){
-            localStorage.setItem("web-token",json.webToken);
+            sessionStorage.setItem("web-token",json.webToken);
             navigate("/notes")
         }else{
             alert("Invalid Credentials")
@@ -63,7 +63,7 @@ export default function LogIn() {
                     <br/>
                     <button type={"submit"} className={"log-in"} >Log In</button>
                     <hr className={"log-hr"}/>
-                    <button type={"submit"} className={"log-new-account"} onClick={displaySign}>Create New Account
+                    <button type={"button"} className={"log-new-account"} onClick={displaySign}>Create New Account
                     </button>
                 </form>
             </div>

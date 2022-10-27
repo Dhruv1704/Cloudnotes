@@ -6,6 +6,7 @@ import noteContext from "../context/notes/noteContext";
 export default function AddNote() {
 
     const closeModal = () => {
+        setNote({title: "", description: "", tag: ""});
         document.getElementById("add-div").style.display = "none";
     }
     const context = useContext(noteContext);
@@ -31,7 +32,7 @@ export default function AddNote() {
                 <span className="close" onClick={closeModal}>&times;</span>
                 <form id={"add-form"} onSubmit={handleAdd}>
                     <p className="sub-heading">Title</p>
-                    <input placeholder="Enter title.  Min-3 characters" id="title-input" name={"title"} value={note.title} onChange={onChange} minLength={3} required/>
+                    <input placeholder="Enter title.  Min-3 characters. Should be unique" id="title-input" name={"title"} value={note.title} onChange={onChange} minLength={3} required/>
                     <p className="sub-heading">Description</p>
                     <textarea id="textarea" placeholder={"Enter notes here. Min-5 characters"} name={"description"} value={note.description}
                               onChange={onChange} minLength={5} required></textarea>

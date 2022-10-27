@@ -16,7 +16,7 @@ const NoteState = (props) => {
             method: "GET",
             headers: {
                 'content-Type': 'application/json',
-                'web-token': localStorage.getItem('web-token')
+                'web-token': sessionStorage.getItem('web-token')   // is only present for current tab and survives refresh. Will not be accessible in other tabs. Is deleted after the tab or browser is closed.
             },
         });
 
@@ -31,7 +31,7 @@ const NoteState = (props) => {
             headers:{
                 'content-Type': 'application/json',
                 'Accept':'application/json',
-                'web-token': localStorage.getItem('web-token')
+                'web-token': sessionStorage.getItem('web-token')
             },
             body: JSON.stringify({title, description, tag})
         });
@@ -43,32 +43,22 @@ const NoteState = (props) => {
 
     //Delete note
     const deleteNote = async (id)=>{
-        // eslint-disable-next-line
-        const response = await fetch(`${host}/api/note/deleteNote/${id}`,{
+        const newNote = notes.filter((notes)=>{return notes._id!==id})
+        setNotes(newNote)
+
+        await fetch(`${host}/api/note/deleteNote/${id}`,{
             method:"DELETE",
             headers:{
                 'content-Type':'application/json',
-                'web-token': localStorage.getItem('web-token')
+                'web-token': sessionStorage.getItem('web-token')
             },
         });
-        const newNote = notes.filter((notes)=>{return notes._id!==id})
-        setNotes(newNote)
-        // eslint-disable-next-line
-        {/*map, filter and reduce , spread operator, multiple function arguments operator.*/}
+        /*map, filter and reduce , spread operator, multiple function arguments operator.*/
     }
 
 
     //Edit note
     const editNote = async (id, title, description, tag)=>{
-        // eslint-disable-next-line
-        const response = await fetch(`${host}/api/note/updateNote/${id}`,{
-            method:"PUT",
-            headers:{
-                'content-Type':'application/json',
-                'web-token': localStorage.getItem('web-token')
-            },
-            body: JSON.stringify({title, description, tag})
-        });
 
         const newNotes = JSON.parse(JSON.stringify(notes))                          // error when directly changing notes as useState does not allow therefore creating a copy
         for (let i = 0; i < newNotes.length; i++) {
@@ -81,6 +71,15 @@ const NoteState = (props) => {
             }
         }
         setNotes(newNotes)
+
+        await fetch(`${host}/api/note/updateNote/${id}`,{
+            method:"PUT",
+            headers:{
+                'content-Type':'application/json',
+                'web-token': sessionStorage.getItem('web-token')
+            },
+            body: JSON.stringify({title, description, tag})
+        });
     }
 
     return (
