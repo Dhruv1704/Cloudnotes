@@ -36,7 +36,7 @@ export default function EditNote(props) {
                     <p className="sub-heading">Tag</p>
                     <input placeholder="Enter tag. Ex-Work,Personal etc" id="title-input" name={"etag"} value={notes.etag} onChange={onChange} required/>
                     <br/>
-                    <button type="submit" className="button" id="add_button">Edit Note</button>
+                    <button type="submit" className="button-modal" id="add_button">Edit Note</button>
                 </form>
             </div>
         </div>

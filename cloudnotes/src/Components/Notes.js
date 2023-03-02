@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useEffect, useContext, useState} from 'react'
 import Navbar from "./Navbar";
 import AddNote from "./AddNote";
 import noteContext from "../context/notes/noteContext";
@@ -6,9 +6,19 @@ import NoteCard from "./NoteCard";
 import {useNavigate} from "react-router-dom";
 
 
+
 export default function Notes() {
+
+    const context = useContext(noteContext);
+    const {notes, getNotes, getUserName} = context
     const navigate = useNavigate();
+
+    const [name, setName] = useState("User");
+
     useEffect(() => {
+        getUserName().then(userName=>{
+            setName(userName.split(" ")[0])
+        });
         document.body.style.background = "white";
         if(sessionStorage.getItem("web-token")){
             getNotes()
@@ -23,8 +33,6 @@ export default function Notes() {
         document.getElementById("add-div").style.display = "block"
     }
 
-    const context = useContext(noteContext);
-    const {notes, getNotes} = context
 
     const search = ()=>{
         const input = document.getElementById("search").value;
@@ -46,11 +54,15 @@ export default function Notes() {
         <>
             <Navbar/>
             <div className={"container"}>
-                <h1>Your Notes</h1>
+                <h1>Welcome Back! {name}</h1>
                 <hr className={"note-hr"}/>
                 <i className="fa fa-search" aria-hidden="true"></i>
                 <input type={"text"} className={"search"} id={"search"} placeholder={"Type to Search"} onInput={search}/>
-                <button type={"button"} className={"button"} onClick={displayAddNotes}>Add Note</button>
+                <div className="outer">
+                    <div className="button" onClick={displayAddNotes}>
+                        <div className="text">Add Note</div>
+                    </div>
+                </div>
                 {notes.length === 0 ?
                     <p className="note-pad-p">Nothing to show! Use "Add a note" button to add notes</p> : ""}
                 <div className={"notes"}>

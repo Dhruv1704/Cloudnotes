@@ -40,7 +40,7 @@ export default function AddNote() {
                     <input placeholder="Enter tag. Ex-Work,Personal etc" id="title-input" name={"tag"} value={note.tag}
                            onChange={onChange} required/>
                     <br/>
-                    <button type="submit"  className="button" id="add_button">Add Note</button>
+                    <button type="submit"  className="button-modal" id="add_button">Add Note</button>
                 </form>
             </div>
         </div>

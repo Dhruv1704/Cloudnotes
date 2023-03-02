@@ -4,12 +4,12 @@ import {Link, useNavigate} from "react-router-dom";
 export default function Navbar() {
 
     const navigate = useNavigate();
-    const logOut = ()=>{
+    const logOut = () => {
         sessionStorage.removeItem("web-token")
         navigate("/")
     }
 
-    const removeWebToken = ()=>{
+    const removeWebToken = () => {
         sessionStorage.removeItem("web-token");
     }
 
@@ -19,7 +19,9 @@ export default function Navbar() {
                 <Link to={"/"} className={"site-title"} onClick={removeWebToken}>CLOUDNOTES</Link>
             </div>
             <div>
-                <button className={"button logout"} onClick={logOut}>Log Out</button>
+                <div className="button logout" onClick={logOut}>
+                    <div className="text">Log Out</div>
+                </div>
             </div>
         </nav>
     )

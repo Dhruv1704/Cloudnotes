@@ -11,7 +11,7 @@ const NoteState = (props) => {
 
 
     //Get all notes
-    const getNotes = async ()=> {
+    const getNotes = async () => {
         const response = await fetch(`${host}/api/note/fetchNotes`, {
             method: "GET",
             headers: {
@@ -25,12 +25,12 @@ const NoteState = (props) => {
     }
 
     //Add note
-    const addNote = async (title, description, tag)=>{
-        const response = await fetch(`${host}/api/note/addNote`,{
-            method:"POST",
-            headers:{
+    const addNote = async (title, description, tag) => {
+        const response = await fetch(`${host}/api/note/addNote`, {
+            method: "POST",
+            headers: {
                 'content-Type': 'application/json',
-                'Accept':'application/json',
+                'Accept': 'application/json',
                 'web-token': sessionStorage.getItem('web-token')
             },
             body: JSON.stringify({title, description, tag})
@@ -42,14 +42,16 @@ const NoteState = (props) => {
     }
 
     //Delete note
-    const deleteNote = async (id)=>{
-        const newNote = notes.filter((notes)=>{return notes._id!==id})
+    const deleteNote = async (id) => {
+        const newNote = notes.filter((notes) => {
+            return notes._id !== id
+        })
         setNotes(newNote)
 
-        await fetch(`${host}/api/note/deleteNote/${id}`,{
-            method:"DELETE",
-            headers:{
-                'content-Type':'application/json',
+        await fetch(`${host}/api/note/deleteNote/${id}`, {
+            method: "DELETE",
+            headers: {
+                'content-Type': 'application/json',
                 'web-token': sessionStorage.getItem('web-token')
             },
         });
@@ -58,12 +60,12 @@ const NoteState = (props) => {
 
 
     //Edit note
-    const editNote = async (id, title, description, tag)=>{
+    const editNote = async (id, title, description, tag) => {
 
         const newNotes = JSON.parse(JSON.stringify(notes))                          // error when directly changing notes as useState does not allow therefore creating a copy
         for (let i = 0; i < newNotes.length; i++) {
             const element = newNotes[i]
-            if(element._id===id){
+            if (element._id === id) {
                 newNotes[i].title = title
                 newNotes[i].description = description
                 newNotes[i].tag = tag
@@ -72,18 +74,33 @@ const NoteState = (props) => {
         }
         setNotes(newNotes)
 
-        await fetch(`${host}/api/note/updateNote/${id}`,{
-            method:"PUT",
-            headers:{
-                'content-Type':'application/json',
+        await fetch(`${host}/api/note/updateNote/${id}`, {
+            method: "PUT",
+            headers: {
+                'content-Type': 'application/json',
                 'web-token': sessionStorage.getItem('web-token')
             },
             body: JSON.stringify({title, description, tag})
         });
     }
 
+    const getUserName = async () => {
+        const user = await fetch(`${host}/api/authen/getuser`, {
+                method: "POST",
+                headers: {
+                    'content-Type': "application/json",
+                    'Accept': 'application/json',
+                    'web-token': sessionStorage.getItem('web-token')
+                }
+            }
+        );
+        const json = await user.json()
+        const name = json.name;
+        return name;
+    }
+
     return (
-        <NoteContext.Provider value={{notes, setNotes, addNote, deleteNote, editNote, getNotes, host}}>
+        <NoteContext.Provider value={{notes, setNotes, addNote, deleteNote, editNote, getNotes, getUserName, host}}>
             {props.children}
         </NoteContext.Provider>
     )
