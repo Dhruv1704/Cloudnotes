@@ -20,7 +20,7 @@ export default function AddNote({color}) {
 
     const handleAdd = (e) => {
         e.preventDefault();
-        addNote(note.title, note.description, note.tag, color)
+        addNote(note.title.trim(), note.description.trim(), note.tag.trim(), color)
         setNote({title: "", description: "", tag: ""})   // value= ""  form.reset not working due to e.preventDefault(), form input value={note.title}
         closeModal()
     }

@@ -25,7 +25,7 @@ export default function EditNote(props) {
 
     const updateNote = async (e) => {
         e.preventDefault();
-        const update = await editNote(notes.id, notes.etitle, notes.edescription, notes.etag, note.color)
+        const update = await editNote(notes.id, notes.etitle.trim(), notes.edescription.trim(), notes.etag.trim(), note.color)
         if (update) {
             console.log("Hello")
             document.getElementById(`edit-div ${note._id}`).style.display = "none";
