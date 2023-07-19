@@ -1,236 +1,6 @@
-body{
-  margin: 0;
-  padding: 0;
-  background: #f0f2f5;
-}
-
-.navbar{
-  display: flex;
-  margin: 0 auto;
-  padding-top: 1.12em;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1315px;
-}
-
-
-.site-title{
-  text-decoration: none;
-  user-select: none;
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: #027afa;
-}
-
-.log-title,
-.log-subtitle{
-  text-align: center;
-}
-
-
-.log-title{
-  font-size: 3rem;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-top: 0.4em;
-  color: #1877f2;
-  user-select: none;
-}
-
-.log-subtitle{
-  font-size: 1.3rem;
-  margin-top: 0;
-}
-
-.log-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0 10px 8px #e5e5e6;
-  margin: 0 auto;
-  height: 17.5em;
-  width: 348px;
-  background: white;
-  border-radius: 10px;
-  padding: 1em;
-}
-/*.far{*/
-/*  position: relative;*/
-/*  bottom: 43px;*/
-/*  left: 150px;*/
-/*  cursor: pointer;*/
-/*  width: 16px;*/
-/*  margin-left: -30px;*/
-/*  display: none;*/
-/*}*/
-.log-email,
-.log-pass{
-  border: 1px solid #dddfe2;
-  border-radius: 6px;
-  font-size: 1rem;
-  padding: 0.75em;
-  width: 92%;
-  margin-bottom: 0.75em;
-}
-
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #c2c4c9;
   opacity: 1; /* Firefox */
-}
-
-.log-in{
-  width: 99%;
-  border-radius: 6px;
-  padding: 0.5em 0;
-  background: #1877f2;
-  color: white;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border: none;
-  margin-bottom: 1em;
-}
-
-.log-hr{
-  width: 100%;
-  color: #e1e1e1;
-  /*color: #dddfe2;*/
-}
-
-.log-new-account{
-  font-size: 1.3rem;
-  padding: 0.5em;
-  background: #42b72a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  margin-top: 1em;
-}
-
-.sign-div{
-  display: none;
-  z-index: 1;
-  position: fixed;
-  background: rgba(255, 255, 255, .8);
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.add-div {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  padding:0 1em;
-  z-index: 1;
-  background: rgba(255, 255, 255, .8);
-  width: 100%;
-  height: 100%;
-}
-
-.sign-form{
-  position: relative;
-  top: 20%;
-  border-radius: 6px;
-  box-shadow: 0 0 10px 8px #e5e5e6;
-  justify-content: center;
-  width:350px;
-  height: 394px;
-  padding:0 0.75em;
-  background: white;
-  margin: auto;
-}
-
-.sign-title{
-  margin: 0;
-}
-
-.sign-hr{
-  width: 105%;
-  margin: auto;
-}
-
-.sign-title-div{
-  border-bottom: 1px solid silver;
-  padding-bottom: 1em;
-}
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.sign-fname,
-.sign-lname,
-.sign-input{
-  font-size: 1rem;
-  padding: 0.5em;
-  width: 42%;
-  margin: 1em 0;
-  background: #f5f6f7;
-  border: 1px solid #dddfe2;
-  border-radius: 4px;
-}
-
-.sign-name{
-  display: flex;
-  justify-content: space-between;
-}
-
-.sign-input{
-  margin-top: 0;
-  width: 95%;
-}
-
-.sign-btn{
-  font-size: 1.25rem;
-  position: relative;
-  left: 24%;
-  padding: 0.25em;
-  width: 50%;
-  color: white;
-  background: #00a400;
-  border: none;
-  border-radius: 6px;
-  margin-top: 1em;
-}
-
-button{
-  cursor: pointer;
-}
-
-.container{
-  max-width: 1000px;
-  margin: 0 auto;
-  padding:0 1em 2em 1em;
-}
-
-.container-hr{
-  color: #e8e8e8;
-  /*width: 100%;*/
-}
-
-.textarea-div{
-  padding: 0.1em 2em;
-  /*border: 3px solid #e8e8e8;*/
-  background: white;
-  box-shadow: 0 0 10px 8px #e5e5e6;
-  max-width: 1000px;
-  border-radius: 6px;
-  position: relative;
-  top: 25%;
-  margin: auto;
 }
 
 .button-modal {
@@ -245,16 +15,16 @@ button{
   width: 5.5em;
 }
 
+
 .button{
   margin: 1em 0;
-  border: 3px solid #027afa;
+  border: 3px solid black;
   border-radius: 6px;
   display: block;
   width: 6em;
-  background: linear-gradient(to right, #027afa 50%, white 50%);
+  background: linear-gradient(to right, black 50%, white 50%) right bottom;
   background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all .5s ease-out;
+  transition: background-position .5s ease-out;
   cursor: pointer;
 }
 
@@ -266,138 +36,23 @@ button{
   text-align: center;
   font-weight: 700;
   padding: 0.5em;
-  color: #027afa;
+  color: black;
   transition: all .6s ease-out;
   display: block;
 }
 
-.text:hover{
+.button:hover .text{
   color:white;
 }
 
-.logout{
-  margin: 0;
-  height: 2.5em;
-  width: 8.5em;
-}
-
-.logout:hover{
-  color: white;
-}
-
-button:active{
-  transform: scale(1.1);
-}
-
-.log-in:active{
-  transform: scale(1.05);
-}
-
-.sub-heading{
-  font-size: 1.25rem;
-}
-
-#title-input{
-  font-size: 1rem;
-  padding: 0.5em;
-  width: 97%;
-  margin: 0 auto;
-}
-
-#textarea{
-  font-size: 1rem;
-  padding: 0.5em;
-  width: 97%;
-  /*max-width: 97%;   or resize:vertical*/
-  resize: vertical;
-}
-
-.search{
-  width: 100.5%;
-  font-weight: bold;
-  padding: 0.5em 0 0.5em 2em;
-  border: none;
-  border-radius: 10px;
-  background: #f5f6f7;
-  color: black;
-  box-sizing: border-box;
-}
-
-.fa-search{
-  position: relative;
-  padding-top: 1px;
-  margin-right: -21px;
-  z-index: 1;
-}
-
-.note-hr{
-  width: 100%;
-}
-
-.note-pad{
-  height: 230px;
-  width: 300px;
-  box-shadow: 0 0 10px 8px #e5e5e6;
-  background: #71ffaf;
-  border-radius: 6px;
-  padding: 0.5em 1em;
-  word-wrap: break-word;  /* IMP */
-  box-sizing: border-box;
-  overflow: auto;
-  transition: transform 0.5s;
-}
-.note-pad-p{
-  white-space: pre-line;
-}
-
-.notes{
-  display: grid;
-  grid-template-columns: repeat(auto-fill,300px);
-  justify-content: space-around;
-  grid-column-gap: 1em;
-  grid-row-gap: 2em;
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
-
-
-.tag-flex{
-  display: flex;
-  justify-content: space-between;
-}
-
-.note-pad:hover{
-  transform: scale(1.1);
-}
-
-.delete-edit-icon-div{
-  display: flex;
-  align-items: center;
-}
-
-.fa{
-  cursor: pointer;
-}
-
-.fa-pen-to-square{
-  margin: 0 0.5em;
-}
-
-.fa-trash,.fa-pen-to-square{
-   transition: transform 0.5s;
-}
-
-.fa-trash:hover,.fa-pen-to-square:hover{
-  transform: translateY(-5px);
-}
-
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 /* Handle */
 .note-pad::-webkit-scrollbar{
   width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -413,26 +68,11 @@ button:active{
 ::-webkit-scrollbar-thumb:hover {
   background: gray;
 }
-
-@media  screen and (min-width: 901px) {
-  .log-div{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 80vh;
-    margin: 0 auto;
-    max-width: 980px;
-  }
-
-  .log-form{
-    margin: 0;
-  }
-  .log-title{
-    padding: 0;
-    text-align: left;
-  }
+::-ms-reveal {
+  display: none;
 }
 
 
 /*1)React strict mode
 2)connecting endpoints*/
+

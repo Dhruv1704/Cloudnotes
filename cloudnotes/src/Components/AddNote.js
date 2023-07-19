@@ -3,7 +3,7 @@ import {useState, useContext} from "react";
 import noteContext from "../context/notes/noteContext";
 
 
-export default function AddNote() {
+export default function AddNote({color}) {
 
     const closeModal = () => {
         setNote({title: "", description: "", tag: ""});
@@ -20,27 +20,34 @@ export default function AddNote() {
 
     const handleAdd = (e) => {
         e.preventDefault();
-        addNote(note.title, note.description, note.tag)
+        addNote(note.title, note.description, note.tag, color)
         setNote({title: "", description: "", tag: ""})   // value= ""  form.reset not working due to e.preventDefault(), form input value={note.title}
         closeModal()
     }
 
 
     return (
-        <div id={"add-div"} className={"add-div"}>
-            <div className="textarea-div">
-                <span className="close" onClick={closeModal}>&times;</span>
+        <div id={"add-div"} className={"hidden fixed top-0 left-0 box-border px-2 w-full h-full bg-[#ffffffcc] z-50"}>
+            <div className="relative top-[25%] bg-white max-w-4xl m-auto p-4 pt-0 pb-1 rounded-xl shadow-2xl">
                 <form id={"add-form"} onSubmit={handleAdd}>
-                    <p className="sub-heading">Title</p>
-                    <input placeholder="Enter title.  Min-3 characters. Should be unique" id="title-input" name={"title"} value={note.title} onChange={onChange} minLength={3} required/>
-                    <p className="sub-heading">Description</p>
-                    <textarea id="textarea" placeholder={"Enter notes here. Min-5 characters"} name={"description"} value={note.description}
+                    <div className={"flex items-center justify-between"}>
+                        <p className="text-xl self-end">Title</p>
+                        <span
+                            className="text-[#aaaaaa] font-bold text-[28px] cursor-pointer hover:text-black decoration-0"
+                            onClick={closeModal}>&times;</span>
+                    </div>
+                    <input placeholder="Min-3 characters (Should be unique)" name={"title"}
+                           value={note.title} className={"border-[1px] rounded-md my-2 p-2 w-full"} onChange={onChange} minLength={3} required/>
+                    <p className="text-xl">Description</p>
+                    <textarea placeholder={"Min-5 characters"} name={"description"}
+                              value={note.description} className={"w-full border-[1px] rounded-md my-2 p-2 resize-y"}
                               onChange={onChange} minLength={5} required></textarea>
-                    <p className="sub-heading">Tag</p>
-                    <input placeholder="Enter tag. Ex-Work,Personal etc" id="title-input" name={"tag"} value={note.tag}
+                    <p className="text-xl">Tag</p>
+                    <input placeholder="Ex-Work,Personal etc" className={"border-[1px] rounded-md my-2 p-2 w-full"} name={"tag"} value={note.tag}
                            onChange={onChange} required/>
-                    <br/>
-                    <button type="submit"  className="button-modal" id="add_button">Add Note</button>
+                    <button type="submit" className="button active:scale-95" id="add_button">
+                        <span className={"text"}>Add Note</span>
+                    </button>
                 </form>
             </div>
         </div>
