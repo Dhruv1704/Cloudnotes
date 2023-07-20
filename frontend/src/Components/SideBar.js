@@ -6,6 +6,7 @@ const SideBar = () => {
     const navigate = useNavigate();
     const logOut = () => {
         localStorage.removeItem("web-token")
+        localStorage.removeItem('notes')
         navigate("/")
     }
 
