@@ -15,7 +15,7 @@ export default function NoteCard(props) {
 
     return (
         <>
-            <div className={`bg-[${note.color}] w-[348px] h-[320px] break-words whitespace-break-spaces rounded-3xl p-7 px-8 shadow-lg hover:scale-105 duration-300 ease-out cursor-pointer flex flex-col justify-between`}>
+            <div className={`notes bg-[${note.color}] w-[348px] h-[332px] break-words whitespace-break-spaces rounded-3xl p-7 px-8 shadow-lg hover:scale-105 duration-300 ease-out cursor-pointer flex flex-col justify-between`}>
                 <div className={"note-pad overflow-hidden hover:overflow-auto"}>
                     <div className={"flex justify-between mb-6"}>
                         <h3 className="text-3xl max-w-[70%] font-semibold">{note.title}</h3>
