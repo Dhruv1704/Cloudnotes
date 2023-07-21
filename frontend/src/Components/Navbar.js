@@ -12,7 +12,7 @@ export default function Navbar() {
 
 
     return (
-        <nav className={"md:hidden py-2 px-4 flex mx-auto items-center justify-between w-full "}>
+        <nav className={"md:hidden py-2 px-4 flex mx-auto items-center justify-between w-full"}>
             <div className={"w-[44px]"}></div>
             <h1 className={"decoration-0 select-none font-bold text-3xl"}>cloudnotes</h1>
             <div onClick={logOut} className={"bg-black w-[44px] h-[44px] justify-center rounded-full flex items-center cursor-pointer select-none"}>

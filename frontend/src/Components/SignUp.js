@@ -15,6 +15,10 @@ export default function SignUp(props) {
 
     const signUp = async (e) => {
         e.preventDefault();
+        if (!navigator.onLine) {
+            tst("You're offline", "error")
+            return;
+        }
         setProgress(30);
         const {fname, lname, email, password} = credentials;
         const response = await fetch(`${process.env.REACT_APP_HOST}/api/authen/createuser`, {

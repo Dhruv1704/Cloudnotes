@@ -27,6 +27,10 @@ export default function LogIn() {
 
     const logIn = async (e) => {
         e.preventDefault();
+        if (!navigator.onLine) {
+            tst("You're offline", "error")
+            return;
+        }
         setProgress(30);
         const response = await fetch(`${process.env.REACT_APP_HOST}/api/authen/login`, {
             method: "POST",
