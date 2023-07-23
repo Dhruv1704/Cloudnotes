@@ -1,0 +1,3 @@
+POST http://localhost:5010/api/authen/getuser
+
+web-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxYjY1MDMwZTY5YjQ4Mjk3NzU4YTZlIn0sImlhdCI6MTY2Mjc0OTI1MX0.Cx5yKPXIoJkp1DKwMpbZc9WKuYG2qTrSxmV2vNRTbk8

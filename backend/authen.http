@@ -1,0 +1,8 @@
+POST http://localhost:5010/api/authen/createuser
+Content-Type: application/json
+
+{
+  "name": "Dhke",
+  "email": "12@mail.com",
+  "password": "23235353"
+}
