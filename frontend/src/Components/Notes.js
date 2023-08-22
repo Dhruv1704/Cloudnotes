@@ -68,10 +68,10 @@ export default function Notes() {
                 onLoaderFinished={() => setProgress(0)}
             />
             <div
-                className={`absolute md:hidden top-0 w-full h-full ${showColors ? "block" : "hidden"} bg-[#ffffffcc] z-10`}></div>
+                className={`absolute md:hidden top-0 w-full h-full ${showColors ? "block" : "hidden"} bg-[#ffffffcc] z-20`}></div>
             <div className={"xl:basis-10/12 lg:basis-4/5 md:basis-9/12 md:pt-5 mx-auto md:mr-0 md:ml-auto"}>
                 <div className={"mx-auto px-4 md:px-8 pb-2"}>
-                    <div className={`sticky top-[20px] z-50 transition-transform ease-out duration-500 ${visible?"translate-y-0":"-translate-y-20"}`}>
+                    <div className={`sticky top-[20px] z-10 transition-transform ease-out duration-500 ${visible?"translate-y-0":"-translate-y-20"}`}>
                         <input type={"text"} className={"select-none w-full mt-2 mb-2 md:mb-0 md:mt-0 py-[0.25em] pl-[2em] font-semibold rounded-2xl bg-[#f5f6f7] box-border"} id={"search"} placeholder={"Type to Search"}
                                onInput={search}/>
                         <i className="fa fa-search absolute top-[33%] md:top-[24%] left-3" aria-hidden="true"></i>

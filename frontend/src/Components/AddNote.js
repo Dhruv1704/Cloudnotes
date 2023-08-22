@@ -25,7 +25,6 @@ export default function AddNote({color}) {
         closeModal()
     }
 
-
     return (
         <div id={"add-div"} className={"hidden fixed top-0 left-0 box-border px-2 w-full h-full bg-[#ffffffcc] z-50"}>
             <div className="relative top-[25%] bg-white max-w-4xl m-auto p-4 pt-0 pb-1 rounded-xl shadow-2xl">
