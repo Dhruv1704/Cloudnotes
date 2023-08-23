@@ -1,3 +1,10 @@
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #c2c4c9;
   opacity: 1; /* Firefox */
