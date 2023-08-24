@@ -1,8 +1,6 @@
-html, body {
-  overflow-x: hidden;
-}
 body {
-  position: relative
+  position: relative;
+  overflow-x: hidden;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
