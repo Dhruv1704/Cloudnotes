@@ -79,7 +79,7 @@ export default function Notes() {
                     <h1 className={"text-5xl font-bold my-4 mb-6 select-none hidden md:block"}>Notes</h1>
                     {(notes.length === 0 || notes===null || notes===undefined) ?
                         <p className="whitespace-pre-line">Nothing To Display!</p> : ""}
-                    <div className={"grid grid-cols-[repeat(auto-fill,348px)] gap-y-10 justify-around mb-10 mt-6 lg:justify-between"}>
+                    <div className={"grid grid-cols-[repeat(auto-fill,348px)] gap-y-10 gap-x-4 justify-around mb-10 mt-6 lg:justify-between"}>
                         {notes.slice().reverse().map((note) => {
                             return (<NoteCard key={note._id} note={note} noteID={noteID} setNoteID={setNoteID}/>
                             )
