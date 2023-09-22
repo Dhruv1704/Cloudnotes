@@ -64,6 +64,10 @@ body {
   display: none;
 }
 
+.notes-basis{
+  flex-basis: calc(100% - 230px);
+}
+
 
 /*1)React strict mode
 2)connecting endpoints*/

@@ -12,7 +12,7 @@ const SideBar = () => {
 
     return (
         <div
-            className={"md:basis-1/12 hidden border-r-[1px] border-[#ebebeb] md:block h-[96vh] fixed md:flex flex-col justify-between items-center pt-4 pb-12 px-10"}>
+            className={"hidden border-r-[1px] border-[#ebebeb] md:block h-[96vh] fixed md:flex flex-col justify-between items-center pt-4 pb-12 px-10"}>
             <div>
                 <h1 className={"decoration-0 select-none font-bold text-2xl"}>cloudnotes</h1>
             </div>
